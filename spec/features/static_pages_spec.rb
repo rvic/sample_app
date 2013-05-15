@@ -39,6 +39,18 @@ describe "Static Pages" do
       page.should have_title("About Us")
     end
   end
+  describe "Contact page" do
+    it "should have the content 'Contact'" do
+      visit '/static_pages/contact'
+      #page.should have_content('About Us')
+      page.should have_selector('h1', :text => 'Contact')
+    end
+    it "should have the title 'Contact'" do
+      visit '/static_pages/contact'
+      #page.source.should have_xpath('//title[contains(.,"Ruby on Rails Tutorial Sample App | About Us")]')
+      page.should have_title("Contact")
+    end
+  end
 end
 
 
