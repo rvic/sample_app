@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass' #, '2.0.0'
+gem 'bcrypt-ruby' #, '3.0.1'
+
+group :development do
+  gem 'annotate'
+end
 
 group :development, :test do
   gem 'sqlite3'
