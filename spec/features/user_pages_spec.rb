@@ -137,6 +137,16 @@ describe "UserPages" do
 
         it { should_not have_link('delete', href: user_path(admin)) }
       end
+      describe "there are no delete links for another user"
+        let(:another_user) { FactoryGirl.create(:user) }
+        let(:another_user_m1) { FactoryGirl.create(:micropost, content: "A_Foo") }
+        let(:another_user_m2) { FactoryGirl.create(:micropost, content: "A_Bar") }
+        before do
+          sign_in user
+          visit another_user
+        end
+        it should_not have_link('delete')
+      end
     end
 
   end
@@ -156,6 +166,7 @@ describe "UserPages" do
       it { should have_content(m2.content) }
       it { should have_content(user.microposts.count) }
     end
+
   end
 
 end
